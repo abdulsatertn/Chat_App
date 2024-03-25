@@ -97,27 +97,29 @@ class LoginView extends StatelessWidget {
                   CustomButton(
                     onTap: () async {
                       if (formKey.currentState!.validate()) {
-                        isLoading = true;
+                        BlocProvider.of<LoginCubit>(context)
+                            .loginUser(email: email!, password: password!);
+                        // isLoading = true;
 
-                        try {
-                          await loginUser();
-                          Navigator.pushNamed(
-                            context,
-                            ChatPage.id,
-                            arguments: email,
-                          );
-                        } on FirebaseAuthException catch (ex) {
-                          if (ex.code == 'wrong-password') {
-                            showSnackBar(context,
-                                'Wrong password provided for that user.');
-                          } else if (ex.code == 'user-not-found') {
-                            showSnackBar(
-                                context, 'No user found for that email.');
-                          }
-                        } catch (ex) {
-                          showSnackBar(context, 'there was an error');
-                        }
-                        isLoading = false;
+                        // try {
+                        //   await loginUser();
+                        //   Navigator.pushNamed(
+                        //     context,
+                        //     ChatPage.id,
+                        //     arguments: email,
+                        //   );
+                        // } on FirebaseAuthException catch (ex) {
+                        //   if (ex.code == 'wrong-password') {
+                        //     showSnackBar(context,
+                        //         'Wrong password provided for that user.');
+                        //   } else if (ex.code == 'user-not-found') {
+                        //     showSnackBar(
+                        //         context, 'No user found for that email.');
+                        //   }
+                        // } catch (ex) {
+                        //   showSnackBar(context, 'there was an error');
+                        // }
+                        // isLoading = false;
                       } else {}
                     },
                     title: 'LOGIN',
