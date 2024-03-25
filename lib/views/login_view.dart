@@ -29,7 +29,7 @@ class LoginView extends StatelessWidget {
           isLoading = false;
           Navigator.pushNamed(context, ChatPage.id);
         } else if (state is LoginFailure) {
-          showSnackBar(context, 'Something went wrong');
+          showSnackBar(context, state.errorMessage);
         }
       },
       child: ModalProgressHUD(
