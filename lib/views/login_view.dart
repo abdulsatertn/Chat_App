@@ -29,6 +29,7 @@ class LoginView extends StatelessWidget {
           isLoading = false;
           Navigator.pushNamed(context, ChatPage.id);
         } else if (state is LoginFailure) {
+          isLoading = false;
           showSnackBar(context, state.errorMessage);
         }
       },
