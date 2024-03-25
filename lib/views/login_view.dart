@@ -21,7 +21,7 @@ class LoginView extends StatelessWidget {
   String? email, password;
 
   Widget build(BuildContext context) {
-    return BlocListener<LoginCubit, LoginState>(
+    return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is LoginLoading) {
           isLoading = true;
@@ -32,7 +32,7 @@ class LoginView extends StatelessWidget {
           showSnackBar(context, state.errorMessage);
         }
       },
-      child: ModalProgressHUD(
+      builder: (context, state) => ModalProgressHUD(
         inAsyncCall: isLoading,
         child: Scaffold(
           backgroundColor: kPrimaryColor,
