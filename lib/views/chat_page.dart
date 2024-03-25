@@ -18,7 +18,7 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String email = ModalRoute.of(context)!.settings.arguments as String;
+    var email = ModalRoute.of(context)!.settings.arguments;
     return StreamBuilder<QuerySnapshot>(
         stream: messages.orderBy(kCreatedAt, descending: true).snapshots(),
         builder: (cotext, snapshot) {
