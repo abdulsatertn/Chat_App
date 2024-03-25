@@ -9,10 +9,12 @@ class ChatPage extends StatelessWidget {
 
   final _controller = ScrollController();
 
-  TextEditingController controller = TextEditingController();
+  final TextEditingController controller = TextEditingController();
 
-  CollectionReference messages =
+  final CollectionReference messages =
       FirebaseFirestore.instance.collection(kMessagesCollection);
+
+  ChatPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,7 @@ class ChatPage extends StatelessWidget {
                       klogo,
                       height: 50,
                     ),
-                    Text('Chat'),
+                    const Text('Chat'),
                   ],
                 ),
                 centerTitle: true,
@@ -74,12 +76,12 @@ class ChatPage extends StatelessWidget {
 
                         controller.clear();
                         _controller.animateTo(0,
-                            duration: Duration(seconds: 1),
+                            duration: const Duration(seconds: 1),
                             curve: Curves.fastOutSlowIn);
                       },
                       decoration: InputDecoration(
                         hintText: 'Send Message',
-                        suffixIcon: Icon(
+                        suffixIcon: const Icon(
                           Icons.send,
                           color: kPrimaryColor,
                         ),
@@ -88,7 +90,7 @@ class ChatPage extends StatelessWidget {
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
-                          borderSide: BorderSide(color: kPrimaryColor),
+                          borderSide: const BorderSide(color: kPrimaryColor),
                         ),
                       ),
                     ),
@@ -97,7 +99,7 @@ class ChatPage extends StatelessWidget {
               ),
             );
           } else {
-            return Text('loading...');
+            return const Text('loading...');
           }
         });
   }
