@@ -44,4 +44,10 @@ class AuthCubit extends Cubit<AuthState> {
       emit(RegisterFailure(errorMessage: 'something wet wrong try later'));
     }
   }
+
+  @override
+  void onChange(Change<AuthState> change) {
+    super.onChange(change);
+    print(change);
+  }
 }
