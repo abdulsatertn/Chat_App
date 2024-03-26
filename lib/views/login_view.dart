@@ -17,7 +17,7 @@ class LoginView extends StatelessWidget {
 
   static String id = 'LoginPage';
 
-  GlobalKey<FormState> formKey = GlobalKey();
+  final GlobalKey<FormState> formKey = GlobalKey();
 
   String? email, password;
 
