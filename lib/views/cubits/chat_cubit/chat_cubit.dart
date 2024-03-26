@@ -12,7 +12,12 @@ class ChatCubit extends Cubit<ChatState> {
       FirebaseFirestore.instance.collection(kMessagesCollection);
 
   void sendMessage({required String message, required String email}) {
-    messages.add({kMessage: message, kCreatedAt: DateTime.now(), 'id': email});
+    try {
+      messages
+          .add({kMessage: message, kCreatedAt: DateTime.now(), 'id': email});
+    } on Exception catch (e) {
+      // TODO
+    }
   }
 
   void getMwssages() {
