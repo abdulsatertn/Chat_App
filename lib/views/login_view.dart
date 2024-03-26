@@ -46,7 +46,7 @@ class LoginView extends StatelessWidget {
               key: formKey,
               child: ListView(
                 children: [
-                  SizedBox(height: 75),
+                  const SizedBox(height: 75),
                   Image.asset(
                     'assets/images/scholar.png',
                     height: 100,
@@ -64,7 +64,7 @@ class LoginView extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 50),
+                  const SizedBox(height: 50),
                   const Row(
                     children: [
                       Text(
@@ -134,7 +134,7 @@ class LoginView extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         'don\'t have an account?  ',
                         style: TextStyle(
                           color: Colors.white,
@@ -144,7 +144,7 @@ class LoginView extends StatelessWidget {
                         onTap: () {
                           Navigator.pushNamed(context, RegisterPage.id);
                         },
-                        child: Text(
+                        child: const Text(
                           '   Register',
                           style: TextStyle(
                             color: Color(0xffC7EDE6),

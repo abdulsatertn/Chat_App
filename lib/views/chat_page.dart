@@ -10,7 +10,7 @@ class ChatPage extends StatelessWidget {
 
   final _controller = ScrollController();
 
-  List<Message> messagesList = [];
+  final List<Message> messagesList = [];
 
   final TextEditingController controller = TextEditingController();
 

@@ -1,5 +1,3 @@
-import 'package:chat_app_second/constants.dart';
-
 class Message {
   final String message;
   final String id;
