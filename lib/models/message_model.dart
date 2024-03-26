@@ -10,13 +10,13 @@ class Message {
     // Check if 'content' key exists and is not null
     if (jsonData['messages'] != null) {
       // Extract the 'content' field
-      String content = jsonData['messages'] as String;
+      String message = jsonData['messages'] as String;
 
       // Extract the 'id' field, or provide a default value if it's null
       String id =
           jsonData['id'] != null ? jsonData['id'] as String : 'abcd@gmail.com';
 
-      return Message(id, content);
+      return Message(message, id);
     } else {
       // Handle the case where 'content' is missing or null
       throw Exception("Invalid message JSON: $jsonData");
