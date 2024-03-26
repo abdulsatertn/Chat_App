@@ -22,7 +22,7 @@ class ChatPage extends StatelessWidget {
     return StreamBuilder<QuerySnapshot>(
         stream: messages.orderBy(kCreatedAt, descending: true).snapshots(),
         builder: (cotext, snapshot) {
-          snapshot.data;
+          // snapshot.data;
 
           if (snapshot.hasData) {
             List<Message> messagesList = [];
