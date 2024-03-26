@@ -1,3 +1,4 @@
+import 'package:chat_app_second/simple_bloc_observer.dart';
 import 'package:chat_app_second/views/blocs/auth_bloc/auth_bloc.dart';
 import 'package:chat_app_second/views/chat_page.dart';
 import 'package:chat_app_second/views/cubits/auth_cubit/auth_cubit.dart';
@@ -16,7 +17,9 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(const ScholarChat());
+  BlocOverrides.runZoned(() {
+    runApp(const ScholarChat());
+  }, blocObserver: SimpleBlocObserver());
 }
 
 class ScholarChat extends StatelessWidget {
