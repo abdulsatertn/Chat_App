@@ -1,8 +1,8 @@
 import 'package:chat_app_second/constants.dart';
 import 'package:chat_app_second/helper/show_snack_bar.dart';
 import 'package:chat_app_second/views/chat_page.dart';
+import 'package:chat_app_second/views/cubits/auth_cubit/auth_cubit.dart';
 import 'package:chat_app_second/views/cubits/chat_cubit/chat_cubit.dart';
-import 'package:chat_app_second/views/cubits/login_cubit/login_cubit.dart';
 import 'package:chat_app_second/views/register_screen.dart';
 import 'package:chat_app_second/widgets/Custom_text_field.dart';
 import 'package:chat_app_second/widgets/custom_button.dart';
@@ -22,7 +22,7 @@ class LoginView extends StatelessWidget {
   String? email, password;
 
   Widget build(BuildContext context) {
-    return BlocListener<LoginCubit, LoginState>(
+    return BlocListener<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is LoginLoading) {
           isLoading = true;
@@ -101,7 +101,7 @@ class LoginView extends StatelessWidget {
                   CustomButton(
                     onTap: () async {
                       if (formKey.currentState!.validate()) {
-                        BlocProvider.of<LoginCubit>(context)
+                        BlocProvider.of<AuthCubit>(context)
                             .loginUser(email: email!, password: password!);
                         // isLoading = true;
 
