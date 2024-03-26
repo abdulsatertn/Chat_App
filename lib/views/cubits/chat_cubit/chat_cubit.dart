@@ -14,4 +14,10 @@ class ChatCubit extends Cubit<ChatState> {
   void sendMessage({required String message, required String email}) {
     messages.add({kMessage: message, kCreatedAt: DateTime.now(), 'id': email});
   }
+
+  void getMwssages() {
+    messages.orderBy(kCreatedAt, descending: true).snapshots().listen((event) {
+      emit(ChatSuccess());
+    });
+  }
 }
